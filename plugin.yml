@@ -1,0 +1,10 @@
+name: KImageTerrain
+main: com.gmail.kamilkime.kimageterrain.Main
+version: 1.0
+author: Kamilkime
+commands:
+  kterrain:
+    aliases: [kimageterrain, kimaget, kimage]
+permissions:
+  kimageterrain.notify:
+    default: op

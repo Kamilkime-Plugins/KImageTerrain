@@ -1,0 +1,83 @@
+# Config version, do not change it manually!
+configVersion: 1
+
+# Security password used to authorize task start
+# Do not leave the default password, change it immediately!
+securityPassword: changeMeNow!
+
+# How many columns will be changed at once?
+# This setting applies to TERRAIN tasks
+terrainChangeAtOnce: 1000
+
+# How many columns will be changed at once?
+# This setting applies to BIOME tasks
+biomeChangeAtOnce: 20000
+
+# Delay between changes, given in ticks
+# 1 second = 20 ticks
+intervalBetweenChanges: 40
+
+# Do you want to allow usage of alpha (transparency) in your schemes?
+# This will increase possible colors from 16.777.216 to 4.294.967.296
+# BUT, it will also require giving 4th color part in the schemes (r,g,b,alpha)
+# If you don't give that part - this setting is almost useless
+useAlpha: false
+
+# Do you want to always place a bedrock block at y=0?
+# If this setting is set to true, the plugin will omit checking what block do you want to place at y=0
+alwaysPlaceBedrock: true
+
+# Do you want to clear all blocks, which were not defined in the scheme?
+airIfNull: true
+
+# Do you want to resume saved tasks on server startup?
+# If this is set to false and there are saved tasks - they are simply deleted and forgotten
+resumeSavedTasks: true
+
+# Do you want to broadcast a message if a task has started/finished?
+broadcastTask: true
+
+# Default scheme for TERRAIN task, used when there is no scheme for a given color
+# Correct syntax: color materialName@minY-maxY materialName:metadata@minY-maxY ...
+defaultIfTerrainNull: DIRT@1-50 GRASS@51
+
+# Default scheme for BIOME task, used when there is no scheme for a given color
+# Correct syntax: biomeName
+defaultIfBiomeNull: PLAINS
+ 
+# Default scheme for TERRAIN task, which can be used by all tasks
+# Correct syntax: color materialName@minY-maxY materialName:metadata@minY-maxY ...
+# Color syntax: red,green,blue,alpha (alpha will be omitted if useAlpha is set to false)
+# In default config there are additional comments in this section to ease reading
+universalTerrainScheme:
+# Sand
+- 255,255,0 DIRT@1-50 SAND@51
+# Grass
+- 0,255,0 DIRT@1-51 GRASS@52
+- 0,240,0 DIRT@1-52 GRASS@53
+- 0,225,0 DIRT@1-53 GRASS@54
+- 0,210,0 DIRT@1-54 GRASS@55
+- 0,195,0 DIRT@1-55 GRASS@56
+- 0,180,0 DIRT@1-56 GRASS@57
+- 0,165,0 DIRT@1-57 GRASS@58
+- 0,150,0 DIRT@1-58 GRASS@59
+- 0,135,0 DIRT@1-59 GRASS@60
+# Water
+- 0,0,255 DIRT@1-55 SAND@56 WATER@57
+- 0,0,200 DIRT@1-54 SAND@55 WATER@56-57
+- 0,0,150 DIRT@1-53 SAND@54 WATER@55-57
+- 0,0,140 DIRT@1-49 SAND@50 WATER@51
+- 0,0,110 DIRT@1-48 SAND@49 WATER@50-51
+- 0,0,85 DIRT@1-47 SAND@48 WATER@49-51
+- 0,0,65 DIRT@1-46 SAND@47 WATER@48-51
+- 0,0,50 DIRT@1-45 SAND@46 WATER@47-51
+# Clear
+- 0,0,0 DIRT@1-50 GRASS@51
+
+# Default scheme for BIOME task, which can be used by all tasks
+# Correct syntax: color biomeName
+# Color syntax: red,green,blue,alpha (alpha will be omitted if useAlpha is set to false)
+universalBiomeScheme:
+- 255,255,0 DESERT
+- 0,255,0 MUSHROOM_ISLAND
+- 0,0,255 RIVER
