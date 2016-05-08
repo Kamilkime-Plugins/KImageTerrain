@@ -8,12 +8,9 @@ import com.gmail.kamilkime.kimageterrain.commands.MainCmd;
 import com.gmail.kamilkime.kimageterrain.commands.TabCompletion;
 import com.gmail.kamilkime.kimageterrain.data.Settings;
 import com.gmail.kamilkime.kimageterrain.data.StringUtils;
-import com.gmail.kamilkime.kimageterrain.listeners.AsyncPlayerChatListener;
-import com.gmail.kamilkime.kimageterrain.listeners.InventoryClickListener;
-import com.gmail.kamilkime.kimageterrain.listeners.InventoryCloseListener;
-import com.gmail.kamilkime.kimageterrain.listeners.PlayerKickListener;
-import com.gmail.kamilkime.kimageterrain.listeners.PlayerQuitListener;
-import com.gmail.kamilkime.kimageterrain.objects.PreparingGUI;
+import com.gmail.kamilkime.kimageterrain.gui.PreparingGUI;
+import com.gmail.kamilkime.kimageterrain.listeners.InventoryListener;
+import com.gmail.kamilkime.kimageterrain.listeners.PlayerListener;
 
 public class Main extends JavaPlugin {
 
@@ -28,11 +25,8 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		getSettings().load();
-		Bukkit.getPluginManager().registerEvents(new AsyncPlayerChatListener(), this);
-		Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
-		Bukkit.getPluginManager().registerEvents(new InventoryCloseListener(), this);
-		Bukkit.getPluginManager().registerEvents(new PlayerKickListener(), this);
-		Bukkit.getPluginManager().registerEvents(new PlayerQuitListener(), this);
+		Bukkit.getPluginManager().registerEvents(new InventoryListener(), this);
+		Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
 		getCommand("kterrain").setExecutor(new MainCmd());
 		getCommand("kterrain").setTabCompleter(new TabCompletion());
 		startMetrics();

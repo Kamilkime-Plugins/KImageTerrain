@@ -1,0 +1,139 @@
+# Messages file version, do not change it manually!
+messagesVersion: 1
+
+# Prefix added before almost every message in the plugin
+prefix: "&7&l[KImageTerrain]"
+
+# Message with correct command usage
+# Used in: /kterrain accept, /kterrain task
+# {0} - prefix
+# {1} - correct usage of the command
+correctUsage: "{0} &cCorrect usage: &7{1}"
+
+# Message sent when the sender wants to accept the task, but does not prepare any
+# Used in: /kterrain accept
+# {0} - prefix
+notPreparingAnyTask: "{0} &cYou are not preparing any task!"
+
+# Message sent when sender tries to accept the task, but the task is not waiting for acceptance
+# Used in: /kterrain accept
+# {0} - prefix
+taskNotWaitingForAccept: "{0} &cYour task is not waiting for acceptance!"
+
+# Message sent when sender entered incorrect securityPassword
+# Used in: /kterrain accept
+# {0} - prefix
+passwordIncorrect: "{0} &cSecurity password incorrect, admins informed!"
+
+# Message sent to admins, when someone enters incorrect securityPassword
+# Used in: /kterrain accept
+# {0} - prefix
+# {1} - name of the sender, who entered wrong securityPassword
+notifyPasswordIncorrect: "{0} &4{1} &ctyped incorrect security password!"
+
+# Message shown on console, when someone enters incorrect securityPassword
+# Used in: /kterrain accept
+# {0} - name of the sender, who entered wrong securityPassword
+notifyConsolePasswordIncorrect: "{0} typed incorrect security password!"
+
+# Message sent when sender enters -i variable, but nothing proper after it
+# Used in: /kterrain check, /kterrain <variables>
+# {0} - prefix
+noImageNameGiven: "{0} &cYou did not give an image name!"
+
+# Message sent when sender gives an image name, but no image was found with that name
+# Used in: /kterrain check, /kterrain <variables>
+# {0} - prefix
+# {1} - image name
+noImageFound: "{0} &cNo image named &7{1} &cfound!"
+
+# Message sent when config and messages files were reloaded
+# Used in: /kterrain reload
+# {0} - prefix
+configReloaded: "{0} &aConfig and messages successfully reloaded!"
+
+# Message sent when the given task ID is not an integer
+# Used in: /kterrain task
+# {0} - prefix
+# {1} - given task ID
+taskIDNotInt: "{0} &c{1} is not a valid integer!"
+
+# Message sent when task ID the sender has given is equal or higher than tasks number (Java start indexing from 0, not 1)
+# Used in: /kterrain task
+# {0} - prefix
+# {1} - given task ID
+noTaskWithID: "{0} &cThere's no task with id &7#{1}&c!"
+
+# Message sent when sender just terminated a task
+# Used in: /kterrain task
+# {0} - prefix
+# {1} - terminated task ID
+taskTerminated: "{0} &aTask &7#{1} &ahas been terminated!"
+
+# Message sent when sender just saved a task
+# Used in: /kterrain task
+# {0} - prefix
+# {1} - saved task ID
+taskSaved: "{0} &aTask &7#{1} &ahas been saved!"
+
+# Message sent when sender just terminated and saved a task
+# Used in: /kterrain task
+# {0} - prefix
+# {1} - terminated and saved task ID
+taskTerminatedAndSaved: "{0} &aTask &7#{1} &ahas been terminated and saved!"
+
+# Message sent when there are no running tasks to be displayed
+# Used in: /kterrain tasks
+# {0} - prefix
+noTasksRunning: "{0} &cNo tasks are running now!"
+
+# Message sent when sender tries to start preparing a task, but is already preparing one
+# Used in: /kterrain <variables>
+# {0} - prefix
+alreadyPreparing: "{0} &cYou are already preparing a task!"
+
+# Message sent when sender gives a world name, but no world was found with that name
+# Used in: /kterrain <variables>
+# {0} - prefix
+# {1} - given world name
+noWorldFound: "{0} &cNo world named &7{1} &cfound!"
+
+# Message sent when sender used the -s variable incorrectly
+# Used in: /kterrain <variables>
+# {0} - prefix
+sVariableSyntax: "{0} &cCorrect variable syntax: &7-s <startX,startZ>"
+
+# Message sent when coordinates given by -s variable are not integers (one of them, or both)
+# Used in: /kterrain <variables>
+# {0} - prefix
+# {1} - given startX
+# {2} - given startZ
+sNotIntegers: "{0} &cProbably &7{1} &cor &7{2} &cis not a valid integer!"
+
+# Message sent when the sender gives x/z coordinate, but not as a valid integer
+# Used in: task preparation
+# {0} - prefix
+valueNotInteger: "{0} &cGiven value must be an integer, task preparing terminated!"
+
+# Message sent when sender has to give the x/z of the task start point
+# Used in: task preparation
+# {0} - prefix
+# {1} - x/z
+enterStartCoordinate: "{0} &aEnter the &7{1} &acoordinate of the task start point&8:"
+
+# Message sent when the task is accepted and started
+# Used in: task preparation
+# {0} - prefix
+taskStarted: "{0} &aTask started! Use &7/kterrain tasks &acommand to check its progress!"
+
+# Message sent when the task preparing was terminated, due to the lack of acceptance
+# Used in: task preparation
+# {0} - prefix
+taskNotAccepted: "{0} &cTask not accepted, preparing terminated!"
+
+# Message broadcasted when task is starting/finishing
+# Used in: task
+# {0} - prefix
+# {1} - image name
+# {2} - started/finished
+broadcastTask: "{0} &aTask for image &7{1} &ahas just {2}!"

@@ -1,5 +1,8 @@
-# Config version, do not change it manually!
-configVersion: 1
+# Config file version, do not change it manually!
+configVersion: 2
+
+# Do you want the securityPassword to be required while authorizing the task?
+requireSecurityPassword: true
 
 # Security password used to authorize task start
 # Do not leave the default password, change it immediately!

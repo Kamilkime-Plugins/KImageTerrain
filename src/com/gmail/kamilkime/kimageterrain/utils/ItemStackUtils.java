@@ -1,4 +1,4 @@
-package com.gmail.kamilkime.kimageterrain.objects.utils;
+package com.gmail.kamilkime.kimageterrain.utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.gmail.kamilkime.kimageterrain.objects;
+package com.gmail.kamilkime.kimageterrain.gui;
 
 import java.util.Arrays;
 
@@ -12,7 +12,9 @@ import org.bukkit.inventory.ItemStack;
 import com.gmail.kamilkime.kimageterrain.Main;
 import com.gmail.kamilkime.kimageterrain.data.FileManager;
 import com.gmail.kamilkime.kimageterrain.data.StringUtils;
-import com.gmail.kamilkime.kimageterrain.objects.utils.ItemStackUtils;
+import com.gmail.kamilkime.kimageterrain.task.prepared.PreparedBiomeTask;
+import com.gmail.kamilkime.kimageterrain.task.prepared.PreparedTerrainTask;
+import com.gmail.kamilkime.kimageterrain.utils.ItemStackUtils;
 
 public class PreparingGUI {
 
@@ -87,9 +89,13 @@ public class PreparingGUI {
 	public void finish() {
 		p.closeInventory();
 		if(Main.getSettings().preparingGUIs.containsKey(p.getUniqueId())) Main.getSettings().preparingGUIs.remove(p.getUniqueId());
-		Task t = new Task(image, (usingUniversalScheme ? (isTerrainTask ? Main.getSettings().universalTerrainScheme : Main.getSettings().universalBiomeScheme) : FileManager.getSchemesForImage(image, isTerrainTask)),
-				usingUniversalScheme, isTerrainTask, world);
-		t.startPreparing(p, withStartPoint);
+		if(isTerrainTask) {
+			new PreparedTerrainTask(image, (usingUniversalScheme ? Main.getSettings().universalTerrainScheme : FileManager.getSchemesForImage(image, true)),
+					usingUniversalScheme, world).startPreparing(p, withStartPoint);
+		} else {
+			new PreparedBiomeTask(image, (usingUniversalScheme ? Main.getSettings().universalBiomeScheme : FileManager.getSchemesForImage(image, false)),
+					usingUniversalScheme, world).startPreparing(p, withStartPoint);
+		}
 		Main.getSettings().byGui++;
 	}
 	

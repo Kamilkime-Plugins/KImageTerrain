@@ -1,4 +1,4 @@
-package com.gmail.kamilkime.kimageterrain.commands;
+package com.gmail.kamilkime.kimageterrain.commands.sub;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -8,13 +8,14 @@ import java.util.HashSet;
 import org.bukkit.command.CommandSender;
 
 import com.gmail.kamilkime.kimageterrain.Main;
+import com.gmail.kamilkime.kimageterrain.commands.KCommand;
 import com.gmail.kamilkime.kimageterrain.data.FileManager;
 import com.gmail.kamilkime.kimageterrain.data.StringUtils;
-import com.gmail.kamilkime.kimageterrain.objects.scheme.Scheme;
+import com.gmail.kamilkime.kimageterrain.scheme.Scheme;
 
-public class CheckCmd {
+public class CheckCmd implements KCommand {
 
-	public void check(CommandSender sender, String[] args) {
+	public void execute(CommandSender sender, String[] args) {
 		if(args.length < 2) {
 			triggerHelp(sender);
 			return;
@@ -27,11 +28,11 @@ public class CheckCmd {
 		boolean isTerrainTask = StringUtils.hasArgument("-t", args);
 		boolean forceUniversalScheme = StringUtils.hasArgument("-u", args);
 		if(imageName.isEmpty()){
-			sender.sendMessage(StringUtils.color("&7&l[KImageTerrain] &cYou did not give an image name!"));
+			sender.sendMessage(StringUtils.getMessage("noImageNameGiven", StringUtils.getMessage("prefix")));
 			return;
 		}
 		if(FileManager.getImage(imageName) == null) {
-			sender.sendMessage(StringUtils.color("&7&l[KImageTerrain] &cNo image named &7" + imageName + " &cfound!"));
+			sender.sendMessage(StringUtils.getMessage("noImageFound", StringUtils.getMessage("prefix"), imageName));
 			return;
 		}
 		BufferedImage image = FileManager.getImage(imageName);
@@ -62,12 +63,12 @@ public class CheckCmd {
 	
 	private void triggerHelp(CommandSender sender){
 		sender.sendMessage(StringUtils.color("                      &8&l--------------------"));
-		sender.sendMessage(StringUtils.color("&cAvailable &7/kterrain check &ccommand arguments&8:"));
-		sender.sendMessage(StringUtils.color(" &8&l» &c-i <imageName>  &8[&7argument pointing to used image&8]"));
+		sender.sendMessage(StringUtils.color("&cAvailable &7/kterrain check &ccommand variables&8:"));
+		sender.sendMessage(StringUtils.color(" &8&l» &c-i <imageName>  &8[&7variable pointing to used image&8]"));
 		sender.sendMessage(StringUtils.color(" &8&l» &c-b &7or &c-t  &8[&7task type - TERRAIN or BIOME&8]"));
 		sender.sendMessage(StringUtils.color(" &8&l» &c-u  &8[&7forces usage of UNIVERSAL scheme&8]"));
 		sender.sendMessage("");
-		sender.sendMessage(StringUtils.color("&7-u &cargument is optional, other are obligatory!"));
+		sender.sendMessage(StringUtils.color("&7-u &cvariable is optional, other are obligatory!"));
 		sender.sendMessage(StringUtils.color("&cFor more help type&8: &7/kterrain help"));
 		sender.sendMessage(StringUtils.color("                      &8&l--------------------"));
 	}

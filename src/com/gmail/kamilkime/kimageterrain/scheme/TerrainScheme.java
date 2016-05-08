@@ -1,4 +1,4 @@
-package com.gmail.kamilkime.kimageterrain.objects.scheme;
+package com.gmail.kamilkime.kimageterrain.scheme;
 
 import java.awt.Color;
 

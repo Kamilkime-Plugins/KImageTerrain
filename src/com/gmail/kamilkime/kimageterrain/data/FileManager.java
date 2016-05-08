@@ -17,13 +17,14 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.material.MaterialData;
 
 import com.gmail.kamilkime.kimageterrain.Main;
-import com.gmail.kamilkime.kimageterrain.objects.scheme.BiomeScheme;
-import com.gmail.kamilkime.kimageterrain.objects.scheme.Scheme;
-import com.gmail.kamilkime.kimageterrain.objects.scheme.TerrainScheme;
+import com.gmail.kamilkime.kimageterrain.scheme.BiomeScheme;
+import com.gmail.kamilkime.kimageterrain.scheme.Scheme;
+import com.gmail.kamilkime.kimageterrain.scheme.TerrainScheme;
 
 public class FileManager {
 
 	public static final File CFG_FILE = new File(Main.getInst().getDataFolder(), "config.yml");
+	public static final File MSG_FILE = new File(Main.getInst().getDataFolder(), "messages.yml");
 	public static final File SAVE_FILE = new File(Main.getInst().getDataFolder(), "savedData.yml");
 	public static final File IMG_FOLDER = new File(Main.getInst().getDataFolder(), "images");
 	
@@ -31,6 +32,7 @@ public class FileManager {
 		try {
 			if(!Main.getInst().getDataFolder().exists()) Main.getInst().getDataFolder().mkdir();
 			if(!CFG_FILE.exists()) Main.getInst().saveDefaultConfig();
+			if(!MSG_FILE.exists()) Main.getInst().saveResource("messages.yml", true);
 			if(!SAVE_FILE.exists()) SAVE_FILE.createNewFile();
 			if(!IMG_FOLDER.exists()) IMG_FOLDER.mkdir();
 		} catch (IOException e) {
