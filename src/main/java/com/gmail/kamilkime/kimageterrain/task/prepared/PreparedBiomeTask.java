@@ -1,11 +1,10 @@
 package com.gmail.kamilkime.kimageterrain.task.prepared;
 
-import java.util.Collection;
-
-import org.bukkit.World;
-
 import com.gmail.kamilkime.kimageterrain.scheme.Scheme;
 import com.gmail.kamilkime.kimageterrain.task.BiomeTask;
+import org.bukkit.World;
+
+import java.util.Collection;
 
 public class PreparedBiomeTask extends PreparedTask {
 

@@ -1,6 +1,7 @@
-name: KImageTerrain
+name: ${project.name}
 main: com.gmail.kamilkime.kimageterrain.Main
-version: 1.1
+description: ${project.description}
+version: ${project.version}
 author: Kamilkime
 commands:
   kterrain:
